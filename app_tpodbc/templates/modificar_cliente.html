@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <label for="store-id">Id</label>
+    <input type="number" name="store-id" value="{{ cliente.id_tienda }}" id="store-id" required>
+    <label for="first-name">Nombre</label>
+    <input type="text" name="first-name" value="{{ cliente.nombre }}" id="first-name" required>
+    <label for="last-name">Apellido</label>
+    <input type="text" name="last-name" value="{{ cliente.apellido }}" id="last-name" required>
+    <label for="email">Email</label>
+    <input type="email" name="email" value="{{ cliente.email }}" id="email" required>
+    <label for="phone">Telefono</label>
+    <input type="number" name="phone" value="{{ cliente.telefono }}" id="phone" required>
+    <label for="address">Direccion</label>
+    <input type="text" name="address" value="{{ cliente.direccion }}" id="address" required>
+    <label for="last-name">Ciudad</label>
+    <input list="cities" name="city" value="{{ cliente.id_ciudad }}" id="city" required>
+    <label for="last-name">Distrito</label>
+    <input type="text" name="district" value="{{ cliente.distrito }}" id="district" required>
+    <datalist id="cities">
+        {% for ciudad in ciudades %}
+            <option value="{{ ciudad.id }}">{{ ciudad.ciudad }}</option>
+        {% endfor %}
+    </datalist>
+    <label for="last-name">Codigo Postal</label>
+    <input type="number" name="postal-code" value="{{ cliente.codigo_postal }}" id="postal-code" required>
+    <input type="number" name="customer-id" value="{{ cliente.id_cliente }}" id="customer-id" hidden>
+    <input type="number" name="address-id" value="{{ cliente.id_direccion }}" id="address-id" hidden>
+    <button type="submit">Modificar Cliente</button>
+</form>
+</body>
+</html>

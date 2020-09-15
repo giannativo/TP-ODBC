@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <label for="first-name">Nombre</label>
+    <input type="text" name="first-name" id="first-name">
+    <label for="last-name">Apellido</label>
+    <input type="text" name="last-name" id="last-name">
+    <label for="last-name">Ciudad</label>
+    <input list="cities" name="city" id="city">
+    <datalist id="cities">
+        {% for ciudad in ciudades %}
+            <option value="{{ ciudad.id }}">{{ ciudad.ciudad }}</option>
+        {% endfor %}
+    </datalist>
+    <button type="submit">Buscar Cliente</button>
+</form>
+<a href="{% url 'index' %}">Volver</a>
+</body>
+</html>

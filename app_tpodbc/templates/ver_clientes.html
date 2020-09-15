@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for cliente in clientes %}
+    <p>ID: {{ cliente.id }}</p>
+    <p>Nombre: {{ cliente.nombre }}</p>
+    <p>Email: {{ cliente.email }}</p>
+    <p>Telefono: {{ cliente.telefono }}</p>
+    <p>Direccion: {{ cliente.direccion }}</p>
+    <p>Codigo Postal: {{ cliente.codigo_postal }}</p>
+    <p>Distrito: {{ cliente.distrito }}</p>
+    <p>Ciudad: {{ cliente.ciudad }}</p>
+    <p>Pais: {{ cliente.pais }}</p>
+    {% if cliente.activo == 1 %}
+        <p>Activo</p>
+    {% else %}
+        <p>Inactivo</p>
+    {% endif %}
+{% endfor %}
+<a href="{% url 'index' %}">Volver</a>
+</body>
+</html>
