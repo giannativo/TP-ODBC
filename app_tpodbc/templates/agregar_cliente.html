@@ -7,30 +7,31 @@
 <body>
 <form method="post">
     {% csrf_token %}
-    <label for="store-id">Id</label>
-    <input type="number" name="store-id" id="store-id">
+    <label for="store-id">Id de Tienda</label>
+    <input type="number" name="store-id" id="store-id" required>
     <label for="first-name">Nombre</label>
-    <input type="text" name="first-name" id="first-name">
+    <input type="text" name="first-name" id="first-name" required>
     <label for="last-name">Apellido</label>
-    <input type="text" name="last-name" id="last-name">
+    <input type="text" name="last-name" id="last-name" required>
     <label for="email">Email</label>
-    <input type="email" name="email" id="email">
+    <input type="email" name="email" id="email" required>
     <label for="phone">Telefono</label>
-    <input type="number" name="phone" id="phone">
+    <input type="number" name="phone" id="phone" required>
     <label for="address">Direccion</label>
-    <input type="text" name="address" id="address">
+    <input type="text" name="address" id="address" required>
     <label for="last-name">Ciudad</label>
-    <input list="cities" name="city" id="city">
+    <input list="cities" name="city" id="city" required>
     <label for="last-name">Distrito</label>
-    <input type="text" name="district" id="district">
+    <input type="text" name="district" id="district" required>
     <datalist id="cities">
         {% for ciudad in ciudades %}
             <option value="{{ ciudad.id }}">{{ ciudad.ciudad }}</option>
         {% endfor %}
     </datalist>
     <label for="last-name">Codigo Postal</label>
-    <input type="number" name="postal-code" id="postal-code">
+    <input type="number" name="postal-code" id="postal-code" required>
     <button type="submit">Agregar Cliente</button>
 </form>
+<a href="{% url 'index' %}">Volver</a>
 </body>
 </html>
